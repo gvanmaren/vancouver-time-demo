@@ -1,0 +1,8 @@
+Model Information:
+* title:	exclamation mark
+* source:	https://sketchfab.com/3d-models/exclamation-mark-862b9c783b414e6d8e390f4d21553663
+* author:	Sparking+ (https://sketchfab.com/xiongjiyuan123)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

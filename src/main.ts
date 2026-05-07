@@ -1,8 +1,7 @@
 import WebScene from "@arcgis/core/WebScene";
 import * as kernel from "@arcgis/core/kernel";
 import SceneView from "@arcgis/core/views/SceneView";
-import "@esri/calcite-components/dist/calcite/calcite.css";
-import App from "./compontents/App";
+import App from "./components/App";
 import AppStore from "./stores/AppStore";
 
 console.log(`Using ArcGIS Maps SDK for JavaScript v${kernel.fullVersion}`);
@@ -11,7 +10,7 @@ console.log(`Using ArcGIS Maps SDK for JavaScript v${kernel.fullVersion}`);
 
 const params = new URLSearchParams(document.location.search.slice(1));
 
-const webSceneId = params.get("webscene") || "b500006175164ac1a6ba5f8e84a88d01";
+const webSceneId = params.get("webscene") || "b02375c6bbe8490cac558193ecabf83c";
 
 const map = new WebScene({
   portalItem: {
@@ -25,17 +24,6 @@ const map = new WebScene({
 const view = new SceneView({
   container: "viewDiv",
   map,
-  camera: params.get("webscene")
-    ? undefined
-    : {
-        position: {
-          longitude: 8.55532887,
-          latitude: 47.35675923,
-          z: 1424.09201,
-        },
-        heading: 324.45,
-        tilt: 63.06,
-      },
 });
 
 view.popup.defaultPopupTemplateEnabled = true;
