@@ -11,7 +11,6 @@ import { securityStaff } from "../layers";
 import { timeout } from "../utils";
 import UserStore from "./UserStore";
 
-
 type AppStoreProperties = Pick<AppStore, "view">;
 
 @subclass("arcgis-core-template.AppStore")
@@ -34,13 +33,12 @@ class AppStore extends Accessor {
   @property()
   isChangingLiveState = false;
 
-
   constructor(props: AppStoreProperties) {
     super(props);
 
     whenOnce(() => this.map).then(async (map) => {
       await map.load();
-      document.title = map.portalItem.title;
+      document.title = map.portalItem?.title || document.title;
       await map.loadAll();
     });
 
@@ -62,11 +60,11 @@ class AppStore extends Accessor {
 
     if (this.isLive) {
       this.isLive = false;
-      this.view.map.removeMany(streamLayers);
+      this.view.map?.removeMany(streamLayers);
       await timeout(1000);
     } else {
       this.isLive = true;
-      this.view.map.addMany(streamLayers);
+      this.view.map?.addMany(streamLayers);
       const lvs = await Promise.all(
         streamLayers.map((l) => this.view.whenLayerView(l)),
       );

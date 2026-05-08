@@ -28,7 +28,7 @@ class UserStore extends Accessor {
   }
 
   @property()
-  user: PortalUser | null;
+  user: PortalUser | null = null;
 
   constructor() {
     super();
@@ -38,7 +38,7 @@ class UserStore extends Accessor {
       portal.authMode = "immediate";
 
       portal.load().then(() => {
-        this.user = portal.user;
+        this.user = portal.user ?? null;
       });
     });
   }

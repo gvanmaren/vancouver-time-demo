@@ -26,7 +26,9 @@ const view = new SceneView({
   map,
 });
 
-view.popup.defaultPopupTemplateEnabled = true;
+if (view.popup) {
+  view.popup.defaultPopupTemplateEnabled = true;
+}
 
 (window as any)["view"] = view;
 

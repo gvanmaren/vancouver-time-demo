@@ -32,6 +32,9 @@ class Header extends Widget<HeaderProperties> {
     super(props);
 
     const viewContainer = props.store.view.container;
+    if (!viewContainer) {
+      return;
+    }
 
     viewContainer.addEventListener("mousedown", this.closeUserMenu);
 
@@ -54,7 +57,7 @@ class Header extends Widget<HeaderProperties> {
   }
 
   private openScene() {
-    const itemPageUrl = this.store.map.portalItem.itemPageUrl;
+    const itemPageUrl = this.store.map.portalItem?.itemPageUrl;
     if (itemPageUrl) {
       window.open(itemPageUrl, "new");
     }
@@ -67,12 +70,14 @@ class Header extends Widget<HeaderProperties> {
     const liveButtonKind = this.store.isLive ? "brand" : "neutral";
     const liveButtonLoading = this.store.isChangingLiveState;
 
+    const title = this.store?.map?.portalItem?.title || "ArcGIS Scene";
+
     return (
       <div>
         <calcite-navigation slot="header">
           <calcite-navigation-logo
             slot="logo"
-            heading={this.store.map.portalItem.title}
+            heading={title}
             description="ArcGIS Maps SDK for JavaScript"
             thumbnail="./icon-64.svg"
             onclick={() => {

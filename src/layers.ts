@@ -1,7 +1,10 @@
 import StreamLayer from "@arcgis/core/layers/StreamLayer";
 import LabelClass from "@arcgis/core/layers/support/LabelClass";
 import UniqueValueRenderer from "@arcgis/core/renderers/UniqueValueRenderer";
-import { IconSymbol3DLayer, LabelSymbol3D, PointSymbol3D, TextSymbol3DLayer } from "@arcgis/core/symbols";
+import IconSymbol3DLayer from "@arcgis/core/symbols/IconSymbol3DLayer";
+import LabelSymbol3D from "@arcgis/core/symbols/LabelSymbol3D";
+import PointSymbol3D from "@arcgis/core/symbols/PointSymbol3D";
+import TextSymbol3DLayer from "@arcgis/core/symbols/TextSymbol3DLayer";
 
 const makeIconSymbol = (href: string) =>
   new PointSymbol3D({
