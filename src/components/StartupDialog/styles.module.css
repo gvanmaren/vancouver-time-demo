@@ -1,0 +1,14 @@
+/* Startup dialog */
+
+calcite-label[slot="footer-end"] {
+  --calcite-label-margin-bottom: 0;
+}
+
+.startupDialogContent {
+  /* height: 40vh; */
+  max-height: 40vh;
+  img,
+  video {
+    max-width: 100%;
+  }
+}

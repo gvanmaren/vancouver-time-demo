@@ -1,22 +1,25 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "jsx": "react",
-    "jsxFactory": "tsx",
-    "lib": ["ES2022", "DOM"],
-    "module": "ES2020",
-    "moduleResolution": "Bundler",
-    "noImplicitAny": true,
-    "preserveConstEnums": true,
-    "resolveJsonModule": true,
-    "sourceMap": true,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
     "strict": true,
-    "target": "ES2022",
-    "outDir": "dist/js",
-    "strictPropertyInitialization": false
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["./src/**/*", "./node_modules/@arcgis/core/**/*.d.ts"],
-  "exclude": ["./src/compontents/**/*"]
+  "include": ["src"]
 }

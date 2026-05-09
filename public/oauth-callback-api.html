@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <script>
@@ -11,9 +11,7 @@
             if (esriId) {
               esriId.setOAuthResponseHash(location.hash);
             } else {
-              opener.dispatchEvent(
-                new CustomEvent("arcgis:auth:hash", { detail: location.hash })
-              );
+              opener.dispatchEvent(new CustomEvent("arcgis:auth:hash", { detail: location.hash }));
             }
           } else if (location.search) {
             opener.dispatchEvent(
@@ -27,5 +25,5 @@
       }
     </script>
   </head>
-  <body onload="loadHandler();"></body>
+  <body onload="loadHandler()"></body>
 </html>
