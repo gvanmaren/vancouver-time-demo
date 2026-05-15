@@ -99,6 +99,26 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   // }, [portalTitle, scene]);
 
   useEffect(() => {
+    if (scene.isViewReady && !scene.loading) {
+      window.onkeydown = (e: KeyboardEvent) => {
+        const view = scene.view;
+        const index = Number.parseInt(e.key);
+        const slides = scene.webScene.presentation.slides;
+        if (0 < index && index <= slides.length) {
+          const slide = slides.getItemAt(index - 1);
+
+          if (slide) {
+            void slide.applyTo(view);
+          }
+        }
+      };
+      return () => {
+        window.onkeydown = null;
+      };
+    }
+  }, [scene]);
+
+  useEffect(() => {
     if (!scene.loading) {
       const featureLayer = scene.webScene.allLayers.find(
         l =>
